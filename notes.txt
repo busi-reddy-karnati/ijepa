@@ -1,0 +1,4 @@
+Model configs that are run already are present in configs/
+If we want already trained models, check for checkpoints specified in Pretrained models: Readme
+
+Specify the run configs in configs.yaml
