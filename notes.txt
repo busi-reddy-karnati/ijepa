@@ -2,3 +2,25 @@ Model configs that are run already are present in configs/
 If we want already trained models, check for checkpoints specified in Pretrained models: Readme
 
 Specify the run configs in configs.yaml
+
+The batch_size parameter from the configs.yaml file is used to specify the number of samples that will be processed
+together in one forward/backward pass of the model during training. This parameter is typically used to configure the
+data loader in the training script.
+
+forward pass is the process of inputting data to the model and generating an output.
+backward pass is the process of computing the gradients of the model's parameters with respect to a loss function.
+
+The crop_size parameter in the configs.yaml file specifies the size to which images will be cropped during preprocessing.
+This is typically used to ensure that all images fed into the model have a consistent size, which is necessary for
+batch processing in neural networks.
+
+aspect ratio: ratio of width to height of an image
+These are the parameters that are used to configure the data loader in the training script.
+  allow_overlap = args['mask']['allow_overlap']  # whether to allow overlap b/w context and target blocks
+    patch_size = args['mask']['patch_size']  # patch-size for model training
+    num_enc_masks = args['mask']['num_enc_masks']  # number of context blocks
+    min_keep = args['mask']['min_keep']  # min number of patches in context block
+    enc_mask_scale = args['mask']['enc_mask_scale']  # scale of context blocks
+    num_pred_masks = args['mask']['num_pred_masks']  # number of target blocks
+    pred_mask_scale = args['mask']['pred_mask_scale']  # scale of target blocks
+    aspect_ratio = args['mask']['aspect_ratio']  # aspect ratio of target blocks
